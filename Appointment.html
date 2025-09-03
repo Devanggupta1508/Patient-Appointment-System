@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Appointment.css"/>
+  <title>Patient Appointment System</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <img src="https://static.vecteezy.com/system/resources/previews/002/889/587/non_2x/cartoon-doctor-or-vet-is-happy-and-showing-illustration-free-vector.jpg" alt="logo_img"/>
+    <h1>Patient Appointment System</h1>
+  </nav>
+                                   <div class="formContainer">
+  <!-- Main Layout -->
+  <main>
+    <!-- Left: Form -->
+    <div class="form">
+      <form id="appointmentForm">
+        <h2>Patient Appointment Form</h2>
+
+        <!-- Patient Name -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="patient_name" placeholder="Enter your full name">
+
+        <!-- Age -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="patient_age" placeholder="Enter your age" min="1" max="120">
+
+        <!-- Gender -->
+        <label for="gender">Gender:</label>
+        <select id="gender" name="patient_gender">
+          <option value="">-- Select Gender --</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <!-- Mobile -->
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="patient_mobile" placeholder="Enter mobile number" pattern="[0-9]{10}" maxlength="10">
+
+        <!-- Appointment Date -->
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" name="appointment_date">
+
+        <!-- Appointment Time -->
+        <label for="time">Appointment Time:</label>
+        <input type="time" id="time" name="appointment_time" min="09:00" max="18:00" step="1800">
+        <small>(Appointments available from 9:00 AM to 6:00 PM, every 30 mins)</small>
+
+        <!-- Reason -->
+        <label for="reason">Reason for Visit:</label>
+        <textarea id="reason" name="visit_reason" rows="3" placeholder="Describe your health issue..."></textarea>
+
+        <!-- Submit -->
+        <button type="submit" id="btn">Book Appointment</button>
+      </form>
+    </div>
+
+    <!-- Right: Patients List -->
+    <div class="patients" id="patientsList">
+      <!-- Patient cards dynamically added here -->
+    </div>
+  </main>
+
+
+  </div>
+
+  
+
+
+  <footer>
+  <p>© 2025 Patient Appointment System. All Rights Reserved.</p>
+  <p>Made with ❤️ by <a href="https://portfolio-devanggupta1508s-projects.vercel.app/" target="_blank"> Devang Gupta</a>| <a href="#">Privacy Policy</a></p>
+</footer>
+
+
+  <script src="Appointment.js"></script>
+</body>
+</html>

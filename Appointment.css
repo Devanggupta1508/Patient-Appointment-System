@@ -1,0 +1,301 @@
+/* ========== GLOBAL RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f1f7fa;   /* light hospital blue background */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ========== NAVBAR ========== */
+nav {
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+nav img {
+  height: 50px;
+  width: auto;
+}
+
+nav h1 {
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ========== MAIN LAYOUT ========== */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1300px;
+  margin: 2em auto;
+  padding: 0 20px;
+  flex-wrap: wrap; /* responsive ke liye */
+}
+
+/* Left panel = form */
+form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+form h2 {
+  text-align: center;
+  color: #0077b6;
+  margin-bottom: 1em;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-top: 1em;
+  font-weight: 600;
+  color: #004466;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.7em;
+  margin-top: 0.3em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #0077b6;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,118,182,0.3);
+}
+
+#btn {
+  margin-top: 1.5em;
+  width: 100%;
+  padding: 0.9em;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+#btn:hover {
+  background: linear-gradient(90deg, #218838, #198754);
+  transform: scale(1.03);
+}
+
+/* Right panel = patients list */
+.patients {
+  
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* ========== PATIENT CARD ========== */
+.patientlist {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d9e4ec;
+  border-left: 6px solid #0077b6;   /* hospital theme highlight */
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  flex: 1 1 280px;
+  max-width: 350px;
+} 
+
+.patients button {
+  background-color: #333;
+}
+
+.patientlist:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.info p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Patient Number Badge */
+.patientNumber {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: #0077b6;
+  color: white;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ========== BUTTONS INSIDE PATIENT CARD ========== */
+.btn-group {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-group button {
+  flex: 1 1 auto;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+/* Different button colors */
+.visit { background: #28a745; }
+.visit:hover { background: #1e7e34; }
+
+.regular { background: #007bff; }
+.regular:hover { background: #0056b3; }
+
+.emergency { background: #dc3545; }
+.emergency:hover { background: #a71d2a; }
+
+.pending { background: #fd7e14; }
+.pending:hover { background: #e8590c; }
+
+.followup { background: #6f42c1; }
+.followup:hover { background: #563d7c; }
+
+.delete { background: #343a40; }
+.delete:hover { background: #1d2124; }
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px) {
+  nav h1 {
+    font-size: 1.4rem;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .patients {
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 1em;
+  }
+
+  nav h1 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+
+  form {
+    padding: 1.2em;
+  }
+
+  .patientlist {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .patientNumber {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
+.formContainer {
+  background: #f1f7fa;
+  display: flex;
+  justify-content: center;   /* horizontally center */
+  align-items: center;       /* vertically center */
+  min-height: 100vh;         /* full screen height */
+  flex-direction: column;    /* pehle form, fir patients neeche */
+}
+
+
+/* ========== FOOTER ========== */
+footer {
+  margin-top: 3rem;
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: #ffd166;  /* halka golden hover */
+}
+
+
